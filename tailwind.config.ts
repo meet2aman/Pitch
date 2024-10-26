@@ -1,10 +1,16 @@
 import { fontFamily } from "tailwindcss/defaultTheme";
 import tailwindcssAnimate from "tailwindcss-animate";
+import typography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./sanity/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -14,7 +20,25 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        xs: "475px",
+      },
       colors: {
+        alpha: {
+          "100": "#FFE8F0",
+          DEFAULT: "#EE2B69",
+        },
+        beta: "#FBE843",
+        black: {
+          "100": "#333333",
+          "200": "#141413",
+          "300": "#7D8087",
+          DEFAULT: "#000000",
+        },
+        white: {
+          "100": "#F7F7F7",
+          DEFAULT: "#FFFFFF",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -54,8 +78,14 @@ module.exports = {
         md: `calc(var(--radius) - 2px)`,
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        100: "2px 2px 0px 0px rgb(0, 0, 0)",
+        200: "2px 2px 0px 2px rgb(0, 0, 0)",
+        300: "2px 2px 0px 2px rgb(238, 43, 105)",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        "work-sans": ["var(--font-work-sans)"],
       },
       keyframes: {
         "accordion-down": {
@@ -73,5 +103,5 @@ module.exports = {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [tailwindcssAnimate, typography],
 };
