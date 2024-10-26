@@ -4,11 +4,13 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const SearchFormReset = () => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const SearchFormReset = ({ query }: { query: string }) => {
   const Reset = () => {
     const form = document.querySelector(".search-form") as HTMLFormElement;
     if (form) form.reset();
   };
+
   return (
     <div>
       <Button type="reset" className="search-btn text-white" onClick={Reset}>

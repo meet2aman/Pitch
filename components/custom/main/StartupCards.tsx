@@ -5,9 +5,9 @@ import { StartupCardType } from "@/types/global-types";
 const StartupCards = ({ query }: { query?: string }) => {
   const posts = [
     {
-      _createdAt: "yesterday",
+      _createdAt: new Date(),
       views: 35,
-      author: { _id: 19273 },
+      author: { _id: 19273, name: "Adrian" },
       _id: 29,
       description: "This is Description",
       image:
@@ -16,9 +16,10 @@ const StartupCards = ({ query }: { query?: string }) => {
       title: "Programming",
     },
     {
-      _createdAt: "yesterday",
+      _createdAt: new Date(),
+
       views: 35,
-      author: { _id: 19273 },
+      author: { _id: 19273, name: "Adrian" },
       _id: 2933,
       description: "This is Description",
       image:
@@ -27,9 +28,10 @@ const StartupCards = ({ query }: { query?: string }) => {
       title: "Programming",
     },
     {
-      _createdAt: "yesterday",
+      _createdAt: new Date(),
+
       views: 35,
-      author: { _id: 19273 },
+      author: { _id: 19273, name: "Adrian" },
       _id: 29553,
       description: "This is Description",
       image:
@@ -47,9 +49,7 @@ const StartupCards = ({ query }: { query?: string }) => {
         {posts.length > 0 ? (
           <>
             {posts.map((post: StartupCardType) => (
-              <div key={post._id}>
-                <StartupSingleCard post={post} />
-              </div>
+              <StartupSingleCard key={post?._id} post={post} />
             ))}
           </>
         ) : (
