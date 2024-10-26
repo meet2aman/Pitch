@@ -32,7 +32,7 @@ const Navbar = async () => {
               <Link href={`/user/${session.user.id}`}>
                 <Image
                   className="rounded-full"
-                  src={session?.user?.image || "/user.png"}
+                  src={session?.user?.image || "/user.jpeg"}
                   width={35}
                   height={35}
                   alt="user-image"
