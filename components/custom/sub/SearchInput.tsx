@@ -24,7 +24,7 @@ const SearchInput = ({ query }: { query?: string }) => {
       type="text"
       name="query"
       defaultValue={query}
-      className="search-input"
+      className="search-input custom-input"
       placeholder="Search Startups"
     />
   );

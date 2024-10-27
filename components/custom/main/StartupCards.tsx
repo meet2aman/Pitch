@@ -1,11 +1,15 @@
 import React from "react";
 import StartupSingleCard from "../sub/StartupSingleCard";
-import { StartupCardType } from "@/types/global-types";
-import { client } from "@/sanity/lib/client";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
+import { Author, Startup } from "@/sanity/types";
+import { sanityFetch } from "@/lib/live";
+
+export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
 
 const StartupCards = async ({ query }: { query?: string }) => {
-  const posts = await client.fetch(STARTUPS_QUERY);
+  const params = { search: query || null };
+  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
+
   // const posts = [
   //   {
   //     _createdAt: new Date(),
@@ -51,7 +55,7 @@ const StartupCards = async ({ query }: { query?: string }) => {
       <ul className="mt-7 card_grid">
         {posts.length > 0 ? (
           <>
-            {posts.map((post: StartupCardType) => (
+            {posts.map((post: StartupTypeCard) => (
               <StartupSingleCard key={post?._id} post={post} />
             ))}
           </>

@@ -1,16 +1,16 @@
-import { StartupCardType } from "@/types/global-types";
 import Image from "next/image";
 import React from "react";
 import { formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { StartupTypeCard } from "../main/StartupCards";
 
-const StartupSingleCard = ({ post }: { post: StartupCardType }) => {
+const StartupSingleCard = ({ post }: { post: StartupTypeCard }) => {
   const {
     _createdAt,
     _id,
-    author: { _id: authorId, name: authorName },
+    author,
     views,
     title,
     image,
@@ -28,14 +28,14 @@ const StartupSingleCard = ({ post }: { post: StartupCardType }) => {
       </div>
       <div className="flex-between mt-5 gap-5">
         <div className="flex-1">
-          <Link href={`user/${authorId}`}>
-            <p className="line-clamp-1 text-16-medium">{authorName}</p>
+          <Link href={`user/${author?._id}`}>
+            <p className="line-clamp-1 text-16-medium">{author?.name}</p>
           </Link>
           <Link href={`/startup/${_id}`}>
             <h3 className="text-26-semibold line-clamp-1">{title}</h3>
           </Link>
         </div>
-        <Link href={`user/${authorId}`}>
+        <Link href={`user/${author?._id}`}>
           <Image
             src={"/user.jpeg"}
             height={48}
@@ -57,7 +57,7 @@ const StartupSingleCard = ({ post }: { post: StartupCardType }) => {
         />
       </Link>
       <div className="flex-between gap-3 mt-5">
-        <Link href={`/?query=${category.toLowerCase()}`}>
+        <Link href={`/?query=${category?.toLowerCase()}`}>
           <p className="text-16-medium">{category}</p>
         </Link>
         <Button className="startup-card_btn !hover:bg-alpha" asChild>

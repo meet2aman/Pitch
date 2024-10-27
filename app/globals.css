@@ -79,7 +79,9 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 }
 
@@ -125,7 +127,7 @@
   }
 
   .tag {
-    @apply bg-secondary px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative tag-tri;
+    @apply bg-beta px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative tag-tri;
   }
 
   .heading {
@@ -292,3 +294,9 @@
 .w-md-editor-toolbar {
   padding: 10px !important;
 }
+/* Custom caret color */
+input.custom-input {
+  caret-color: rgb(238 43 105 / var(--tw-bg-opacity));
+}
+
+/* For a thicker caret, you can use text-shadow */

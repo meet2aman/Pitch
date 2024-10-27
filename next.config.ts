@@ -3,12 +3,21 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: [
-      "avatars.githubusercontent.com",
-      "unsplash.com",
-      "plus.unsplash.com",
-      "images.unsplash.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*",
+      },
     ],
+  },
+  experimental: {
+    ppr: "incremental",
+    after: true,
+  },
+  devIndicators: {
+    appIsrStatus: true,
+    buildActivity: true,
+    buildActivityPosition: "bottom-right",
   },
 };
 
