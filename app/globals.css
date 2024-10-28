@@ -262,7 +262,7 @@
 
   /* view */
   .view-container {
-    @apply flex justify-end items-center mt-5 fixed bottom-3 right-3;
+    @apply flex justify-end items-center mt-5 fixed bottom-3 left-3;
   }
 
   .view-text {
@@ -300,3 +300,7 @@ input.custom-input {
 }
 
 /* For a thicker caret, you can use text-shadow */
+
+.widget__actor {
+  inset: auto 88% 0px auto !important;
+}

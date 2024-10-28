@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import React from "react";
 import { cn, formatDate } from "@/lib/utils";
@@ -19,7 +20,7 @@ const StartupSingleCard = ({ post }: { post: StartupTypeCard }) => {
     category,
   } = post;
   return (
-    <li className="startup-card group">
+    <li className="startup-card group list-none">
       <div className="flex-between ">
         <p className="startup-card_date">{formatDate(_createdAt as string)}</p>
         <div className="flex gap-1.5">
@@ -41,7 +42,7 @@ const StartupSingleCard = ({ post }: { post: StartupTypeCard }) => {
             src={author?.image || "/user.jpeg"}
             height={48}
             width={48}
-            alt={author?.name!}
+            alt={author?.name || "author_image"}
             className="rounded-full"
           />
         </Link>
