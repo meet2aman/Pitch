@@ -105,12 +105,6 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
               <CarouselPrevious className="bg-alpha text-white font-black hover:bg-alpha/85" />
               <CarouselNext className="bg-alpha text-white font-black hover:bg-alpha/85" />
             </Carousel>
-            {/* 
-            <ul className="mt-7 card_grid-sm">
-              {editorPosts.map((post: StartupTypeCard, i: number) => (
-                <StartupSingleCard key={i} post={post} />
-              ))}
-            </ul> */}
           </div>
         )}
 
