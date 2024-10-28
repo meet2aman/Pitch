@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { GlobalProvider } from "@/context/GlobalProvider";
-import "easymde/dist/easymde.min.css";
+// import "easymde/dist/easymde.min.css";
 // import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "sonner";
 
 const workSans = localFont({
   src: [
@@ -71,7 +72,7 @@ export default function RootLayout({
       <GlobalProvider>
         <body className={workSans.variable}>
           {children}
-          {/* <Toaster /> */}
+          <Toaster richColors />
         </body>
       </GlobalProvider>
     </html>
