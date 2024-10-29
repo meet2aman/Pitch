@@ -89,13 +89,13 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         <hr className="divider" />
         {/* editor selected startups */}
       </section>
-      <section className="mb-[4rem]">
+      <section className="mb-[4rem] max-md:px-4">
         {editorPosts?.length > 0 && (
           <div className="max-w-4xl mx-auto">
             <p className="text-30-semibold">Editor Picks</p>
 
             <Carousel>
-              <CarouselContent className="py-2">
+              <CarouselContent className="py-2 ">
                 {editorPosts.map((post: StartupTypeCard, i: number) => (
                   <CarouselItem key={i} className="sm:basis-1/2 basis-1">
                     <StartupSingleCard key={i} post={post} />

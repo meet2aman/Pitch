@@ -5,12 +5,13 @@ import { Button } from "../ui/button";
 import { auth, signOut, signIn } from "@/auth";
 import { BadgePlus, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 const Navbar = async () => {
   const session = await auth();
   console.log(session);
   return (
-    <header className="px-5 py-3 bg-black shadow-sm font-work-sans text-white">
+    <header className="px-5 py-3 shadow-sm font-work-sans text-white">
       <nav className="flex justify-between items-center">
         <Link href={"/"}>
           <Image src={"/logo.png"} height={30} width={144} alt="logo" />
@@ -18,7 +19,7 @@ const Navbar = async () => {
         <div className="flex justify-between items-center gap-3">
           {session && session.user ? (
             <>
-              <Link href={"/startup/create"}>
+              <Link href={"/create"}>
                 <span className="max-sm:hidden">Create</span>
                 <BadgePlus className="size-6 sm:hidden text-blue-500" />
               </Link>
@@ -51,6 +52,7 @@ const Navbar = async () => {
                 }}
               >
                 <Button type="submit">
+                  <GitHubLogoIcon />
                   <span>Login</span>
                 </Button>
               </form>
