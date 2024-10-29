@@ -20,7 +20,7 @@ const Navbar = async () => {
           {session && session.user ? (
             <>
               <Link href={"/create"}>
-                <span className="max-sm:hidden">Create</span>
+                <span className="max-sm:hidden text-black">Create</span>
                 <BadgePlus className="size-6 sm:hidden text-blue-500" />
               </Link>
               <form
