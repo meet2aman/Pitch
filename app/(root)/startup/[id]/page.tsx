@@ -26,7 +26,28 @@ import {
 
 const md = markdownit();
 
-const page = async ({ params }: { params: Promise<{ id: string }> }) => {
+type Props = {
+  params: Promise<{ id: string }>;
+};
+
+// export const generateMetaData = async ({
+//   params,
+// }: Props): Promise<Metadata> => {
+//   const id = (await params).id;
+//   const post: StartupTypeCard = await new Promise((resolve) => {
+//     resolve(client.fetch(STARTUP_BY_ID_QUERY, { id }));
+//   });
+
+//   console.log("post", post);
+
+//   return {
+//     title: "Cool",
+//     description: post.description,
+//     category: post.category,
+//   };
+// };
+
+const page = async ({ params }: Props) => {
   const id = (await params).id;
   const [post, { select: editorPosts }] = await Promise.all([
     client.fetch(STARTUP_BY_ID_QUERY, { id }),

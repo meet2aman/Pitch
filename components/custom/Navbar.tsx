@@ -6,6 +6,7 @@ import { auth, signOut, signIn } from "@/auth";
 import { BadgePlus, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { toast } from "sonner";
 
 const Navbar = async () => {
   const session = await auth();
@@ -27,6 +28,7 @@ const Navbar = async () => {
                 action={async () => {
                   "use server";
                   await signOut({ redirectTo: "/" });
+                  toast.success(`Logged Out Successfully`);
                 }}
               >
                 <Button type="submit">
@@ -34,7 +36,7 @@ const Navbar = async () => {
                   <LogOut className="size-6 sm:hidden text-red-500" />
                 </Button>
               </form>
-              <Link href={`/user/${session.user.id}`}>
+              <Link href={`/user/${session.id}`}>
                 <Avatar className="size-10">
                   <AvatarImage src={session.user?.image} />
                   <AvatarFallback className="text-alpha font-balck uppercase">
@@ -49,6 +51,7 @@ const Navbar = async () => {
                 action={async () => {
                   "use server";
                   await signIn("github");
+                  toast.success(`Logged out successfully`);
                 }}
               >
                 <Button type="submit">

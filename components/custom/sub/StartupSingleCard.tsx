@@ -7,8 +7,17 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { StartupTypeCard } from "../main/StartupCards";
 import { Skeleton } from "@/components/ui/skeleton";
+import BookMarkAnimation from "./BookMarkAnimation";
 
-const StartupSingleCard = ({ post }: { post: StartupTypeCard }) => {
+const StartupSingleCard = ({
+  post,
+  isBookmarked,
+}: {
+  post: StartupTypeCard;
+  isBookmarked?: boolean;
+}) => {
+  console.log(post);
+  console.log(post);
   const {
     _createdAt,
     _id,
@@ -21,6 +30,9 @@ const StartupSingleCard = ({ post }: { post: StartupTypeCard }) => {
   } = post;
   return (
     <li className="startup-card group list-none">
+      <div className="relative">
+        <BookMarkAnimation startupId={_id} isBookmarked={isBookmarked!} />
+      </div>
       <div className="flex-between ">
         <p className="startup-card_date">{formatDate(_createdAt as string)}</p>
         <div className="flex gap-1.5">
@@ -37,7 +49,7 @@ const StartupSingleCard = ({ post }: { post: StartupTypeCard }) => {
             <h3 className="text-26-semibold line-clamp-1">{title}</h3>
           </Link>
         </div>
-        <Link href={`user/${author?._id}`}>
+        <Link href={`/user/${author?._id}`}>
           <Image
             src={author?.image || "/user.jpeg"}
             height={48}

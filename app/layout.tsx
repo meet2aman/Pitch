@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { GlobalProvider } from "@/context/GlobalProvider";
-// import "easymde/dist/easymde.min.css";
-// import { Toaster } from "@/components/ui/toaster";
+import "easymde/dist/easymde.min.css";
 import { Toaster } from "sonner";
 
 const workSans = localFont({
@@ -58,7 +57,7 @@ const workSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "YC Directory",
+  title: "Pitch",
   description: "Pitch, Vote and Grow",
 };
 

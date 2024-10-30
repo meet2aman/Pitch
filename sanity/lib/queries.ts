@@ -100,3 +100,33 @@ export const PLAYLIST_BY_SLUG_QUERY =
     pitch
   }
 }`);
+
+export const BOOKMARK_BY_AUTHOR_AND_STARTUP_QUERY =
+  defineQuery(`*[_type == "bookmark" && user-> _id match $userId && startup -> _id match $startupId] | order(_createdAt desc) {
+   id, 
+  _id,
+  _createdAt
+}`);
+
+export const BOOKMARK_BY_AUTHOR_QUERY =
+  defineQuery(`*[_type == "bookmark" && user-> _id match $id] | order(_createdAt desc) {
+  _id, 
+  id, 
+  _createdAt,
+  user -> {
+    _id, name, image, bio
+  }, 
+  startup -> {
+     _id, 
+  title, 
+  views,
+  slug,
+  _createdAt,
+  author -> {
+    _id, name, username, image, bio
+  }, 
+  description,
+  category,
+  image,
+  }, 
+}`);
